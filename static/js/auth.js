@@ -11,9 +11,13 @@ var ver_code_btn = document.getElementById("ver_code_btn");
 var phone_number =  document.getElementById('phone-number');
 var ver_code = document.getElementById("ver_code");
 
+var username = document.getElementById("username");
+var password = document.getElementById("password");
+
+
 // listeners
-// btn_ph_ver.addEventListener('click', showVerification);
-// btn_cancel.addEventListener('click', hideVerification);
+password.addEventListener('keyup', onPassKey);
+username.addEventListener('keyup', onUserKey);
 ver_code_btn.addEventListener('click', onVerifyCodeSubmit);
 btn_cancel.addEventListener('click', cancelVerification);
 btn_ph_ver.addEventListener('click', signin_gate);
@@ -128,7 +132,6 @@ function onVerifyCodeSubmit() {
         });
     }
 }
-
 window.onload = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -160,4 +163,33 @@ function phoneVerified() {
     ph_btn_holder.classList.replace('d-block', 'd-none');
     ph_holder.classList.replace('w-75', 'w-100');
     document.getElementById('ph_check').classList.replace('d-none', 'd-block');
+}
+
+function blockSpecialChar(e) {
+    var k = e.keyCode;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8   || (k >= 48 && k <= 57));
+}
+
+function onPassKey() {
+    var p = password.value;
+    if(p.length < 8) {
+        document.getElementById('p_cross').classList.replace('d-none', 'd-block');
+        document.getElementById('p_check').classList.replace('d-block', 'd-none');
+    }
+    else {
+        document.getElementById('p_cross').classList.replace('d-block', 'd-none');
+        document.getElementById('p_check').classList.replace('d-none', 'd-block');
+    }
+}
+
+function onUserKey() {
+    var p = username.value;
+    if(p.length < 8) {
+        document.getElementById('u_cross').classList.replace('d-none', 'd-block');
+        document.getElementById('u_check').classList.replace('d-block', 'd-none');
+    }
+    else {
+        document.getElementById('u_cross').classList.replace('d-block', 'd-none');
+        document.getElementById('u_check').classList.replace('d-none', 'd-block');
+    }
 }

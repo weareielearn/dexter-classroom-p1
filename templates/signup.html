@@ -25,20 +25,20 @@
         <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign Up</h2>
         <!--  -->
         <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text">
+            <input id="username" class="mdl-textfield__input" type="text" onkeypress="return blockSpecialChar(event)" maxlength="20">
             <label class="mdl-textfield__label">Username</label>
             <i id="u_check" class="d-none material-icons mdl-color-text--primary float-right" style="margin-top: -35px;">check_circle_outline</i>
             <i id="u_cross" class="d-none material-icons mdl-color-text--accent float-right" style="margin-top: -35px;">highlight_off</i>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="password">
+            <input id="password" class="mdl-textfield__input" type="password" maxlength="20">
             <label class="mdl-textfield__label">Password</label>
             <i id="p_check" class="d-none material-icons mdl-color-text--primary float-right" style="margin-top: -35px;">check_circle_outline</i>
             <i id="p_cross" class="d-none material-icons mdl-color-text--accent float-right" style="margin-top: -35px;">highlight_off</i>
         </div>
         <!--  -->
         <div class="mdl-textfield mdl-js-textfield w-75">
-            <input class="mdl-textfield__input" type="text">
+            <input id="code" class="mdl-textfield__input" type="text" maxlength="6">
             <label class="mdl-textfield__label">Community code</label>
         </div>
         <div style="margin-top:-60px; margin-bottom: 25px;">
