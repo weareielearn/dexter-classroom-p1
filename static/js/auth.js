@@ -98,6 +98,10 @@ function onSignInSubmit() {
     }
 }
 
+function onSignOutClick() {
+    firebase.auth().signOut();
+}
+
 function onVerifyCodeSubmit() {
     if (!!getCodeFromUserInput()) {
         window.verifyingCode = true;
@@ -110,10 +114,12 @@ function onVerifyCodeSubmit() {
             window.verifyingCode = false;
             window.confirmationResult = null;
             console.log("Successful verification")
+            onSignOutClick();
             hideVerification();
             ver_code_btn.disabled = false;
             ver_code.disabled = false;
             phone_number.disabled = true;
+            phoneVerified();
             // add button code later
         }).catch(function (error) {
             // User couldn't sign in (bad verification code?)
@@ -149,3 +155,9 @@ window.onload = function () {
         phone_number.disabled = false;
     });
 };
+
+function phoneVerified() {
+    ph_btn_holder.classList.replace('d-block', 'd-none');
+    ph_holder.classList.replace('w-75', 'w-100');
+    document.getElementById('ph_check').classList.replace('d-none', 'd-block');
+}
