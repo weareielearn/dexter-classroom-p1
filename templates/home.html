@@ -14,13 +14,35 @@
 </head>
 
 <body class="bg-light">
-    
+
     <div class="home_bg">
         <a href="/">
-            <h1 class="display-3 text-white text-monospace text-center"><b class="font-weight-bold">dexter</b>
+            <h1 class="display-3 text-white text-center"><b class="font-weight-bold">dexter</b>
                 Classroom</h1>
         </a>
     </div>
+    <form class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
+        <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Get Started</h2>
+
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text">
+            <label class="mdl-textfield__label">Username</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="password">
+            <label class="mdl-textfield__label">Password</label>
+        </div>
+        <a href="/forgot" class="mdl-color-text--primary">
+            <p>Forgot Password ?</p>
+        </a>
+        <div class="text-center w-100">
+            <button class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sign
+                in</button>
+            <h5 class="h5 mt-2 d-inline-block text-monospace mdl-color-text--primary">or</h5>
+            <a href="/signup/1" class="mdl-button--accent float-right mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sign
+                up</a>
+        </div>
+    </form>
 
 
     <script src="../static/js/jquery.min.js"></script>
