@@ -14,7 +14,7 @@ def forgot():
 
 
 @app.route('/new')
-def forgot():
+def new():
     return render_template('signup.html')
 
 
