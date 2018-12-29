@@ -14,9 +14,9 @@ var ver_code = document.getElementById("ver_code");
 // listeners
 // btn_ph_ver.addEventListener('click', showVerification);
 // btn_cancel.addEventListener('click', hideVerification);
-documeupdateSignedInUserStatusUIt.getElementById('ver_code_btn').addEventListener('click', onVerifyCodeSubmit);
-documeupdateSignedInUserStatusUIt.getElementById('btn_cancel').addEventListener('click', cancelVerification);
-documeupdateSignedInUserStatusUIt.getElementById('btn_ph_ver').addEventListener('click', signin_gate);
+ver_code_btn.addEventListener('click', onVerifyCodeSubmit);
+btn_cancel.addEventListener('click', cancelVerification);
+btn_ph_ver.addEventListener('click', signin_gate);
 
 // functions
 function showVerification() {
@@ -36,7 +36,6 @@ function hideVerification() {
 }
 
 function signin_gate() {
-    alert("Testing");
     var phoneNumber = getPhoneNumberFromUserInput();
     if (isPhoneNumberValid() && phoneNumber.length === 13) {
         document.getElementById('sign-in-button_offic').click();
@@ -86,18 +85,15 @@ function onSignInSubmit() {
                 // SMS sent. Prompt user to type the code from the message, then sign the
                 window.confirmationResult = confirmationResult;
                 window.signingIn = false;
-                alert("Sms sent for verification");
+                console.log("Sms sent for verification");
                 showVerification();
                 btn_ph_ver.disabled = false;
                 phone_number.disabled = false;
+                ver_code.disabled = false;
             }).catch(function (error) {
                 // Error; SMS not sent
                 console.error('Error during signInWithPhoneNumber', error);
-                window.alert('Error during signInWithPhoneNumber:\n\n'
-                    + error.code + '\n\n' + error.message);
                 window.signingIn = false;
-                updateSignInFormUI();
-                updateSignInButtonUI();
             });
     }
 }
@@ -113,7 +109,7 @@ function onVerifyCodeSubmit() {
             var user = result.user;
             window.verifyingCode = false;
             window.confirmationResult = null;
-            alert("Successful verification")
+            console.log("Successful verification")
             hideVerification();
             ver_code_btn.disabled = false;
             ver_code.disabled = false;
@@ -122,42 +118,9 @@ function onVerifyCodeSubmit() {
         }).catch(function (error) {
             // User couldn't sign in (bad verification code?)
             console.error('Error while checking the verification code', error);
-            window.alert('Error while checking the verification code:\n\n'
-                + error.code + '\n\n' + error.message);
             window.verifyingCode = false;
-            updateSignInButtonUI();
-            updateVerifyCodeButtonUI();
         });
     }
-}
-
-
-
-// test
-function updateVerificationCodeFormUI() {
-    if (!firebase.auth().currentUser && window.confirmationResult) {
-        document.getElementById('verification-code-form').style.display = 'block';
-    } else {
-        document.getElementById('verification-code-form').style.display = 'none';
-    }
-}
-
-function updateSignInFormUI() {
-    if (firebase.auth().currentUser || window.confirmationResult) {
-        document.getElementById('sign-in-form').style.display = 'none';
-    } else {
-        resetReCaptcha();
-        document.getElementById('sign-in-form').style.display = 'block';
-    }
-}
-
-function updateSignInButtonUI() {
-    document.getElementById('btn_ph_ver').disabled = !!window.signingIn;
-}
-
-function updateVerifyCodeButtonUI() {
-    document.getElementById('verify-code-button').disabled =
-        !!window.verifyingCode;
 }
 
 window.onload = function () {
@@ -175,7 +138,7 @@ window.onload = function () {
             alert("Signin successful onload")
         }
     });
-    windowupdateSignedInUserStatusUIrecaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button_offic', {
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button_offic', {
         'size': 'invisible',
         'callback': function (response) {
             onSignInSubmit();
@@ -183,6 +146,6 @@ window.onload = function () {
     });
     recaptchaVerifier.render().then(function (widgetId) {
         window.recaptchaWidgetId = widgetId;
-        updateSignInButtonUI();
+        phone_number.disabled = false;
     });
 };
