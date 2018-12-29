@@ -42,7 +42,7 @@
         </div>
         <!--  -->
         <div id="ph_holder" class="d-block mdl-textfield mdl-js-textfield w-75">
-            <input class="pl-5 mdl-textfield__input" type="number">
+            <input id="phone-number" class="pl-5 mdl-textfield__input" type="number">
             <label class="pl-5 mdl-textfield__label">Phone number</label>
             <span style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
         </div>
@@ -51,20 +51,35 @@
         </div>
         <!--  -->
         <div id="ver_holder" class="d-none mdl-textfield mdl-js-textfield w-50">
-            <input class="mdl-textfield__input" type="number">
+            <input id="ver_code" class="mdl-textfield__input" type="number">
             <label class="mdl-textfield__label">Code</label>
         </div>
         <div id="ver_btn_holder" class="d-none" style="margin-top:-60px; margin-bottom: 25px" align="right">
-            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+            <button id="ver_code_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
             <button id="btn_cancel" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
         </div>
         <!--  -->
-
         <div class="text-center w-100">
             <button class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
         </div>
+        <!--  -->
+        <button id="sign-in-button_offic" class="d-none"></button>
     </form>
 
+    <!-- firebase init -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyAwau9l26Q57iepoEjQGNKzfEuQMhbVwVA",
+            authDomain: "dexter-classroom.firebaseapp.com",
+            databaseURL: "https://dexter-classroom.firebaseio.com",
+            projectId: "dexter-classroom",
+            storageBucket: "dexter-classroom.appspot.com",
+            messagingSenderId: "627226131084"
+        };
+        firebase.initializeApp(config);
+    </script>
     <!-- js files -->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/bootstrap.bundle.min.js"></script>
