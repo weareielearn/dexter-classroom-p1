@@ -41,20 +41,21 @@
             <button type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
         </div>
         <!--  -->
-        <div class="mdl-textfield mdl-js-textfield w-75">
+        <div id="ph_holder" class="d-block mdl-textfield mdl-js-textfield w-75">
             <input class="mdl-textfield__input" type="number">
             <label class="mdl-textfield__label">Phone number</label>
         </div>
-        <div style="margin-top:-60px; margin-bottom: 25px;">
-            <button type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+        <div id="ph_btn_holder" class="d-block" style="margin-top:-60px; margin-bottom: 25px;">
+            <button id="btn_ph_ver" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
         </div>
         <!--  -->
-        <div class="mdl-textfield mdl-js-textfield w-75">
-            <input disabled class="mdl-textfield__input" type="number">
-            <label class="mdl-textfield__label">Verification code</label>
+        <div id="ver_holder" class="d-none mdl-textfield mdl-js-textfield w-50">
+            <input class="mdl-textfield__input" type="number">
+            <label class="mdl-textfield__label">Code</label>
         </div>
-        <div style="margin-top:-60px; margin-bottom: 25px;">
-            <button disabled type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+        <div id="ver_btn_holder" class="d-none" style="margin-top:-60px; margin-bottom: 25px" align="right">
+            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+            <button id="btn_cancel" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
         </div>
         <!--  -->
 
@@ -63,10 +64,11 @@
         </div>
     </form>
 
-
+    <!-- js files -->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/bootstrap.bundle.min.js"></script>
     <script src="../static/js/material.min.js"></script>
+    <script src="../static/js/auth.js"></script>
 </body>
 
 </html>
