@@ -22,8 +22,8 @@
         </a>
     </div>
     <form class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
-        <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign In</h2>
-
+        <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign Up</h2>
+        <!--  -->
         <div class="mdl-textfield mdl-js-textfield">
             <input class="mdl-textfield__input" type="text">
             <label class="mdl-textfield__label">Username</label>
@@ -32,14 +32,34 @@
             <input class="mdl-textfield__input" type="password">
             <label class="mdl-textfield__label">Password</label>
         </div>
-        <a href="/forgot" class="mdl-color-text--primary">
-            <p>Forgot Password ?</p>
-        </a>
+        <!--  -->
+        <div class="mdl-textfield mdl-js-textfield w-75">
+            <input class="mdl-textfield__input" type="text">
+            <label class="mdl-textfield__label">Community code</label>
+        </div>
+        <div style="margin-top:-60px; margin-bottom: 25px;">
+            <button type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+        </div>
+        <!--  -->
+        <div class="mdl-textfield mdl-js-textfield w-75">
+            <input class="mdl-textfield__input" type="number">
+            <label class="mdl-textfield__label">Phone number</label>
+        </div>
+        <div style="margin-top:-60px; margin-bottom: 25px;">
+            <button type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+        </div>
+        <!--  -->
+        <div class="mdl-textfield mdl-js-textfield w-75">
+            <input disabled class="mdl-textfield__input" type="number">
+            <label class="mdl-textfield__label">Verification code</label>
+        </div>
+        <div style="margin-top:-60px; margin-bottom: 25px;">
+            <button disabled type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+        </div>
+        <!--  -->
+
         <div class="text-center w-100">
             <button class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
-            <h5 class="h5 mt-2 d-inline-block text-monospace mdl-color-text--primary">or</h5>
-            <a href="/signup/1" class="mdl-button--accent float-right mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sign
-                Up</a>
         </div>
     </form>
 
