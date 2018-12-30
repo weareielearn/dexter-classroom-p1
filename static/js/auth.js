@@ -8,7 +8,7 @@ var btn_ph_ver = document.getElementById("btn_ph_ver");
 var btn_cancel = document.getElementById("btn_cancel");
 var ver_code_btn = document.getElementById("ver_code_btn");
 
-var phone_number =  document.getElementById('phone-number');
+var phone_number = document.getElementById('phone-number');
 var ver_code = document.getElementById("ver_code");
 
 var username = document.getElementById("username");

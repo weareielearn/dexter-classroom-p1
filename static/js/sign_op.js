@@ -56,30 +56,30 @@ function onUserKey() {
     var p = username.value;
     if (p.indexOf(" ") != -1) {
         username.value = p.replace(" ", "_");
-    } else {
-        if (p.length < 8) {
-            document.getElementById('u_cross').classList.replace('d-none', 'd-block');
-            document.getElementById('u_check').classList.replace('d-block', 'd-none');
-            document.getElementById("u_cross_text").innerHTML = "Minimum 8 characters";
-        }
-        else {
-
-            var ref = firebase.database().ref("users/" + p);
-            ref.once("value")
-                .then(function (snapshot) {
-                    if (snapshot.exists()) {
-                        // user is not unique
-                        document.getElementById('u_cross').classList.replace('d-none', 'd-block');
-                        document.getElementById('u_check').classList.replace('d-block', 'd-none');
-                        document.getElementById("u_cross_text").innerHTML = "Username already taken";
-                    } else {
-                        // username is unique
-                        document.getElementById('u_cross').classList.replace('d-block', 'd-none');
-                        document.getElementById('u_check').classList.replace('d-none', 'd-block');
-                    }
-                });
-        }
     }
+    if (p.length < 8) {
+        document.getElementById('u_cross').classList.replace('d-none', 'd-block');
+        document.getElementById('u_check').classList.replace('d-block', 'd-none');
+        document.getElementById("u_cross_text").innerHTML = "Minimum 8 characters";
+    }
+    else {
+
+        var ref = firebase.database().ref("users/" + p);
+        ref.once("value")
+            .then(function (snapshot) {
+                if (snapshot.exists()) {
+                    // user is not unique
+                    document.getElementById('u_cross').classList.replace('d-none', 'd-block');
+                    document.getElementById('u_check').classList.replace('d-block', 'd-none');
+                    document.getElementById("u_cross_text").innerHTML = "Username already taken";
+                } else {
+                    // username is unique
+                    document.getElementById('u_cross').classList.replace('d-block', 'd-none');
+                    document.getElementById('u_check').classList.replace('d-none', 'd-block');
+                }
+            });
+    }
+
 }
 
 function signup_form_submit() {

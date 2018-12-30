@@ -6,10 +6,15 @@ app = Flask(__name__)
 app.secret_key = 'dexter-classroom-secret-key'
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def home():
     if 'dexter_classroom_session' not in session:
-        return render_template('home.html')
+        if request.method == 'POST':
+            username = request.form['username']
+            session['dexter_classroom_session'] = username
+            return redirect('/')
+        else:
+            return render_template('home.html')
     else:
         return redirect('/test')
 
@@ -44,6 +49,7 @@ def test():
     if 'dexter_classroom_session' not in session:
         return redirect('/')
     return"Development in process"
+
 
 # tests
 @app.route('/test-logout')

@@ -21,32 +21,56 @@
                 Classroom</h1>
         </a>
     </div>
-    <form class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
+    <form id="signin_form" method="POST" action="/" class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
         <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign In</h2>
-
+        <!--  -->
         <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text">
+            <input name="username" id="username_signin" class="mdl-textfield__input" type="text" maxlength="20">
             <label class="mdl-textfield__label">Username</label>
+            <i id="u_check_signin" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+            <i id="u_cross_signin" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+            <div id="u_cross_text_signin" class="mdl-tooltip mdl-color--brown" data-mdl-for="u_cross_signin">Test</div>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="password">
+            <input name="password" id="password_signin" class="mdl-textfield__input" type="password" maxlength="20">
             <label class="mdl-textfield__label">Password</label>
+            <i id="p_check_signin" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+            <i id="p_cross_signin" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+            <div id="p_cross_text_signin" class="mdl-tooltip mdl-color--brown" data-mdl-for="p_cross_signin">Minimum 8
+                characters</div>
         </div>
+        <!--  -->
         <a href="/forgot" class="mdl-color-text--primary">
             <p>Forgot Password ?</p>
         </a>
         <div class="text-center w-100">
-            <button class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
+            <button type="button" id="signin_offic" class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
             <h5 class="h5 mt-2 d-inline-block text-monospace mdl-color-text--primary">or</h5>
             <a href="/new" class="mdl-button--accent float-right mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sign
                 Up</a>
         </div>
     </form>
 
+    <!-- firebase init -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyAwau9l26Q57iepoEjQGNKzfEuQMhbVwVA",
+            authDomain: "dexter-classroom.firebaseapp.com",
+            databaseURL: "https://dexter-classroom.firebaseio.com",
+            projectId: "dexter-classroom",
+            storageBucket: "dexter-classroom.appspot.com",
+            messagingSenderId: "627226131084"
+        };
+        firebase.initializeApp(config);
+    </script>
     <!-- js files -->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/bootstrap.bundle.min.js"></script>
     <script src="../static/js/material.min.js"></script>
+    <script src="../static/js/signin_op.js"></script>
 </body>
 
 </html>
