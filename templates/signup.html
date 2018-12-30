@@ -25,34 +25,40 @@
         <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign Up</h2>
         <!--  -->
         <div class="mdl-textfield mdl-js-textfield">
-            <input id="username" class="mdl-textfield__input" type="text" onkeypress="return blockSpecialChar(event)" maxlength="20">
+            <input id="username" class="mdl-textfield__input" type="text" maxlength="20">
             <label class="mdl-textfield__label">Username</label>
-            <i id="u_check" class="d-none material-icons mdl-color-text--primary float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="u_cross" class="d-none material-icons mdl-color-text--accent float-right" style="margin-top: -35px;">highlight_off</i>
+            <i id="u_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+            <i id="u_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
+            <div class="mdl-tooltip mdl-color--red" data-mdl-for="u_cross">Test</div>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
             <input id="password" class="mdl-textfield__input" type="password" maxlength="20">
             <label class="mdl-textfield__label">Password</label>
-            <i id="p_check" class="d-none material-icons mdl-color-text--primary float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="p_cross" class="d-none material-icons mdl-color-text--accent float-right" style="margin-top: -35px;">highlight_off</i>
+            <i id="p_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+            <i id="p_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
+            <div class="mdl-tooltip mdl-color--red" data-mdl-for="p_cross">Minimum 8 letters</div>
         </div>
         <!--  -->
-        <div class="mdl-textfield mdl-js-textfield w-75">
+        <div id="code_holder" class="mdl-textfield mdl-js-textfield w-75">
             <input id="code" class="mdl-textfield__input" type="text" maxlength="6">
             <label class="mdl-textfield__label">Community code</label>
+            <i id="c_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+            <i id="c_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
+            <div class="mdl-tooltip mdl-color--red" data-mdl-for="c_cross">Invalid community code</div>
         </div>
-        <div style="margin-top:-60px; margin-bottom: 25px;">
-            <button type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+        <div id="code_verify_btn_holder" style="margin-top:-60px; margin-bottom: 24px;">
+            <button id="code_verify_btn" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
         </div>
         <!--  -->
         <div id="ph_holder" class="d-block mdl-textfield mdl-js-textfield w-75">
             <input id="phone-number" class="pl-5 mdl-textfield__input" type="number">
             <label class="pl-5 mdl-textfield__label">Phone number</label>
             <span style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
-            <i id="ph_check" class="d-none material-icons mdl-color-text--primary float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="ph_cross" class="d-none material-icons mdl-color-text--accent float-right" style="margin-top: -35px;">highlight_off</i>
+            <i id="ph_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+            <i id="ph_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
+            <div class="mdl-tooltip mdl-color--red" data-mdl-for="ph_cross">Invalid phone number</div>
         </div>
-        <div id="ph_btn_holder" class="d-block" style="margin-top:-60px; margin-bottom: 25px;">
+        <div id="ph_btn_holder" class="d-block" style="margin-top:-60px; margin-bottom: 24px;">
             <button id="btn_ph_ver" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
         </div>
         <!--  -->
@@ -60,7 +66,7 @@
             <input id="ver_code" class="mdl-textfield__input" type="number">
             <label class="mdl-textfield__label">Code</label>
         </div>
-        <div id="ver_btn_holder" class="d-none" style="margin-top:-60px; margin-bottom: 25px" align="right">
+        <div id="ver_btn_holder" class="d-none" style="margin-top:-60px; margin-bottom: 24px" align="right">
             <button id="ver_code_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
             <button id="btn_cancel" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
         </div>
@@ -75,6 +81,7 @@
     <!-- firebase init -->
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
     <script>
         var config = {
             apiKey: "AIzaSyAwau9l26Q57iepoEjQGNKzfEuQMhbVwVA",
@@ -91,6 +98,7 @@
     <script src="../static/js/bootstrap.bundle.min.js"></script>
     <script src="../static/js/material.min.js"></script>
     <script src="../static/js/auth.js"></script>
+    <script src="../static/js/sign_op.js"></script>
 </body>
 
 </html>

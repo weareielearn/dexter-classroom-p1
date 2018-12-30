@@ -45,7 +45,7 @@ function signin_gate() {
         document.getElementById('sign-in-button_offic').click();
     }
     else {
-        alert("not valid");
+        document.getElementById("ph_cross").classList.replace("d-none", "d-block");
     }
 }
 
@@ -94,6 +94,7 @@ function onSignInSubmit() {
                 btn_ph_ver.disabled = false;
                 phone_number.disabled = false;
                 ver_code.disabled = false;
+                document.getElementById("ph_cross").classList.replace("d-block", "d-none");
             }).catch(function (error) {
                 // Error; SMS not sent
                 console.error('Error during signInWithPhoneNumber', error);
@@ -124,6 +125,8 @@ function onVerifyCodeSubmit() {
             ver_code.disabled = false;
             phone_number.disabled = true;
             phoneVerified();
+            document.getElementById("ph_cross").classList.replace("d-block", "d-none");
+            document.getElementById("ph_check").classList.replace("d-none", "d-block");
             // add button code later
         }).catch(function (error) {
             // User couldn't sign in (bad verification code?)
@@ -163,11 +166,6 @@ function phoneVerified() {
     ph_btn_holder.classList.replace('d-block', 'd-none');
     ph_holder.classList.replace('w-75', 'w-100');
     document.getElementById('ph_check').classList.replace('d-none', 'd-block');
-}
-
-function blockSpecialChar(e) {
-    var k = e.keyCode;
-    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8   || (k >= 48 && k <= 57));
 }
 
 function onPassKey() {
