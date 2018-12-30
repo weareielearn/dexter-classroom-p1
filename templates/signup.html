@@ -21,18 +21,18 @@
                 Classroom</h1>
         </a>
     </div>
-    <form class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
+    <form id="signup_form" method="POST" action="/new" class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
         <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign Up</h2>
         <!--  -->
         <div class="mdl-textfield mdl-js-textfield">
-            <input id="username" class="mdl-textfield__input" type="text" maxlength="20" onkeydown="javascript:stripspaces(this)">
+            <input name="username" id="username" class="mdl-textfield__input" type="text" maxlength="20" onkeydown="javascript:stripspaces(this)">
             <label class="mdl-textfield__label">Username</label>
             <i id="u_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
             <i id="u_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
             <div id="u_cross_text" class="mdl-tooltip mdl-color--brown" data-mdl-for="u_cross">Test</div>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input id="password" class="mdl-textfield__input" type="password" maxlength="20">
+            <input name="password" id="password" class="mdl-textfield__input" type="password" maxlength="20">
             <label class="mdl-textfield__label">Password</label>
             <i id="p_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
             <i id="p_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
@@ -40,7 +40,7 @@
         </div>
         <!--  -->
         <div id="code_holder" class="mdl-textfield mdl-js-textfield w-75">
-            <input id="code" class="mdl-textfield__input" type="text" maxlength="6">
+            <input name="community" id="code" class="mdl-textfield__input" type="text" maxlength="6">
             <label class="mdl-textfield__label">Community code</label>
             <i id="c_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
             <i id="c_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
@@ -51,7 +51,7 @@
         </div>
         <!--  -->
         <div id="ph_holder" class="d-block mdl-textfield mdl-js-textfield w-75">
-            <input id="phone-number" class="pl-5 mdl-textfield__input" type="number">
+            <input name="phone" id="phone-number" class="pl-5 mdl-textfield__input" type="number">
             <label class="pl-5 mdl-textfield__label">Phone number</label>
             <span style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
             <i id="ph_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
@@ -72,7 +72,7 @@
         </div>
         <!--  -->
         <div class="text-center w-100">
-            <button class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
+            <button id="signup_offic" type="button" class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
         </div>
         <!--  -->
         <button id="sign-in-button_offic" class="d-none"></button>

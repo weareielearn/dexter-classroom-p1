@@ -145,7 +145,6 @@ window.onload = function () {
             var displayName = user.displayName;
             var providerData = user.providerData;
             var emailVerified = user.emailVerified;
-            alert("Signin successful onload")
         }
     });
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button_offic', {

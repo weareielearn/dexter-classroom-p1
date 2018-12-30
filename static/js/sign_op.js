@@ -3,11 +3,18 @@ var code_verify_btn = document.getElementById('code_verify_btn')
 var code_in = document.getElementById('code');
 var code_holder = document.getElementById('code_holder');
 var code_verify_btn_holder = document.getElementById('code_verify_btn_holder');
+var signup_btn = document.getElementById('signup_offic');
+
+var c_check = document.getElementById("c_check");
+var u_check = document.getElementById("u_check");
+var p_check = document.getElementById("p_check");
+var ph_check = document.getElementById("ph_check");
 
 // listeners
 code_verify_btn.addEventListener('click', checkCommunityCode);
 password.addEventListener('keyup', onPassKey);
 username.addEventListener('keyup', onUserKey);
+signup_btn.addEventListener('click', signup_form_submit);
 
 // functions
 function checkCommunityCode() {
@@ -19,7 +26,6 @@ function checkCommunityCode() {
         .then(function (snapshot) {
             if (snapshot.exists()) {
                 // correct code
-                alert('Success')
                 code_in.disabled = true;
                 code_verify_btn_holder.classList.add("d-none");
                 code_holder.classList.replace("w-75", "w-100");
@@ -73,5 +79,15 @@ function onUserKey() {
                     }
                 });
         }
+    }
+}
+
+function signup_form_submit() {
+    if (u_check.classList.contains("d-block") && c_check.classList.contains("d-block") && p_check.classList.contains("d-block") && ph_check.classList.contains("d-block")) {
+        document.getElementById('phone-number').disabled = false;
+        code_in.disabled = false;
+        document.getElementById("signup_form").submit();
+    } else {
+        alert("form not completed");
     }
 }
