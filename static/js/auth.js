@@ -16,8 +16,6 @@ var password = document.getElementById("password");
 
 
 // listeners
-password.addEventListener('keyup', onPassKey);
-username.addEventListener('keyup', onUserKey);
 ver_code_btn.addEventListener('click', onVerifyCodeSubmit);
 btn_cancel.addEventListener('click', cancelVerification);
 btn_ph_ver.addEventListener('click', signin_gate);
@@ -166,28 +164,4 @@ function phoneVerified() {
     ph_btn_holder.classList.replace('d-block', 'd-none');
     ph_holder.classList.replace('w-75', 'w-100');
     document.getElementById('ph_check').classList.replace('d-none', 'd-block');
-}
-
-function onPassKey() {
-    var p = password.value;
-    if(p.length < 8) {
-        document.getElementById('p_cross').classList.replace('d-none', 'd-block');
-        document.getElementById('p_check').classList.replace('d-block', 'd-none');
-    }
-    else {
-        document.getElementById('p_cross').classList.replace('d-block', 'd-none');
-        document.getElementById('p_check').classList.replace('d-none', 'd-block');
-    }
-}
-
-function onUserKey() {
-    var p = username.value;
-    if(p.length < 8) {
-        document.getElementById('u_cross').classList.replace('d-none', 'd-block');
-        document.getElementById('u_check').classList.replace('d-block', 'd-none');
-    }
-    else {
-        document.getElementById('u_cross').classList.replace('d-block', 'd-none');
-        document.getElementById('u_check').classList.replace('d-none', 'd-block');
-    }
 }

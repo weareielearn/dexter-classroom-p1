@@ -25,26 +25,26 @@
         <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign Up</h2>
         <!--  -->
         <div class="mdl-textfield mdl-js-textfield">
-            <input id="username" class="mdl-textfield__input" type="text" maxlength="20">
+            <input id="username" class="mdl-textfield__input" type="text" maxlength="20" onkeydown="javascript:stripspaces(this)">
             <label class="mdl-textfield__label">Username</label>
             <i id="u_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="u_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--red" data-mdl-for="u_cross">Test</div>
+            <i id="u_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+            <div id="u_cross_text" class="mdl-tooltip mdl-color--brown" data-mdl-for="u_cross">Test</div>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
             <input id="password" class="mdl-textfield__input" type="password" maxlength="20">
             <label class="mdl-textfield__label">Password</label>
             <i id="p_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="p_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--red" data-mdl-for="p_cross">Minimum 8 letters</div>
+            <i id="p_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="p_cross">Minimum 8 characters</div>
         </div>
         <!--  -->
         <div id="code_holder" class="mdl-textfield mdl-js-textfield w-75">
             <input id="code" class="mdl-textfield__input" type="text" maxlength="6">
             <label class="mdl-textfield__label">Community code</label>
             <i id="c_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="c_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--red" data-mdl-for="c_cross">Invalid community code</div>
+            <i id="c_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="c_cross">Invalid community code</div>
         </div>
         <div id="code_verify_btn_holder" style="margin-top:-60px; margin-bottom: 24px;">
             <button id="code_verify_btn" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
@@ -55,8 +55,8 @@
             <label class="pl-5 mdl-textfield__label">Phone number</label>
             <span style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
             <i id="ph_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="ph_cross" class="d-none material-icons mdl-color-text--red float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--red" data-mdl-for="ph_cross">Invalid phone number</div>
+            <i id="ph_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="ph_cross">Invalid phone number</div>
         </div>
         <div id="ph_btn_holder" class="d-block" style="margin-top:-60px; margin-bottom: 24px;">
             <button id="btn_ph_ver" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
