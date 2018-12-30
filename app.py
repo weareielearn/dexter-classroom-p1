@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
+from operations import userAuth
 
+userAuth.user_auth_init()
 app = Flask(__name__)
 
 
@@ -22,7 +24,8 @@ def new():
         password = request.form['password']
         phone = request.form['phone']
         community = request.form['community']
-        return"asd"
+        userAuth.create_user(username, password, phone, community)
+        return"Created"
 
 
 if __name__ == '__main__':

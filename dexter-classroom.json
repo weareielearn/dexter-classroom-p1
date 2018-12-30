@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "dexter-classroom",
+  "private_key_id": "51f704d59b481bd31859717e52a0dcf61d7a8511",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCo/Q/RbISdse6Z\nfFfXkeclorTQcWsKaHvVSFslu7VV62azalaSZQ9E8QcfbqvSZyFj7VnPZBa2XOqN\nsDGhb6AylXX0WgTFruh5Pap/Um0HEZglJ3CbkVYB9t/w1kjamsbqWbc4JTgK0isT\naj8CJS5Cu9LVch/pZm/4X3X6R2InALdN9ke4sayyF+EZ/25sWa+sbxRXpy3pwXRR\nZX4M9QtBXr9L3acWi/hnxLL3n1zGVtb6lrIgjR5uXxvrKsOJNHwiBSTOq07CoMaP\nQKLZErZ7lT8v3Svk50E1iNbdfk0R3OTd9DDi7QJWACgrEgt5dMK6Wuw9tI2298cp\noQPoLb33AgMBAAECggEATZN6nvuvt4rWyzwTQUFX+OWEFwpyBqGnc2ZXfW9509sQ\nVv3ShzsAcvgo+mt+UkUIxYxQxc2fRZFLFcdUSVVql74YG5f1h+B/FSVTb0aiCXQw\nwaGk5q2l65nu/OsKH9ycwzlzTEF9xC3uG2gTS8NQxM7ffx/4eVeOwFjmWoJJkzhY\nEBvgWTpmvkrsyzZgukl0weE0fomUWv5ix5HLOcnM4orLUs2t/jR4Tzji6nsJcwGl\nMe521unyNXY9nD1XyrMbiSOSDl4S+5wZELURLuo1U83VZ6dGUGLpydYGf7rDPOae\nWGeqvMerzPa3Zi/8jNRM/Qetaq0Y6I8zWM8HNVGipQKBgQDd53vmgp9Cm8rQUe1U\nf8v4u1+w13LQqhKFRdQVC410LTxKGi8KVlXRBQHT2nCQ2z2Qk7ByCci+08vcJ7Zu\nrMvztZn0ZikmFgeEvuo3zIHX5pKvY7HNZ6hh2NPBoZEb7cBh7i9W6gLWsayX5GnD\nurtcqp06XkjUFHNC+15LOmLpEwKBgQDC9Ci21CbLPOfCiylGuROJXTgpOFPkLTme\n+IltF+k0CdzUQKDVZZK3LMT42/7AKI8cf5H1ApTDm4qZVrnLjK7vX2/sOKKeOKuU\ndKfEE1TfxfLZEKp+vL83v4QzHaYkMoXRWhKj6Qq0SthCdyw/9fU7WgHBUn0vX6kt\nstVMeF14DQKBgQDA1gEd+DVeNPSyw/9yhvxCUtJ9Yz0riCBAIMaE410xsH3MB6UJ\nXq2Ezs0fxZw8xclicnXLJCWHb5ag4wHue8thJld7w6vOpSYzfZUcmGPds0mVkRVa\nYtI49axPgJARrTKZ59rLtOByokRSWvRuWz+m771ik7zGUF85vifbSAnccQKBgB9t\nhua6Wqqm3eHB11ycV2bsjTIv7244UDKtdFIO6bxG3r+kz4i3QCihYfuQU4gcwb1h\nX2E1ElBaUcSYc4k527WhGATnuGdzUU20ZJs6VpNgcN7HTgTyXo0ZJbGr1O2+602t\njJW56szXx/cnCQ4ik28G+oN0zdOGQ1qnmrUiLkc9AoGBAL63Y2Y+LtuKgUb7aNb9\n62iCuNkYmTz4qPclAr+GNALoizOtttNwURMSRSxUill373m1YCaE2u/5ED4MsneU\nbICvHRv7Hblv5tfsenAimEHthjfawYrs2fmohNuEqdjGnAfLdoUEdfmsQpCj7f8x\nom/2YUj4V8AZkZTSm2N2pb3k\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-u2gwg@dexter-classroom.iam.gserviceaccount.com",
+  "client_id": "105295767556305792855",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-u2gwg%40dexter-classroom.iam.gserviceaccount.com"
+}
