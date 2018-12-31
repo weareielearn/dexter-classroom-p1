@@ -79,19 +79,25 @@ def settings():
     return"settings - Development in process"
 
 
-# tests
-@app.route('/test-logout')
+@app.route('/signout')
 def test_logout():
     if 'dexter_classroom_session' in session:
         session.pop('dexter_classroom_session')
     return redirect('/')
 
 
+# tests
 @app.route('/test-session')
 def test_session():
     if 'dexter_classroom_session' not in session:
         session['dexter_classroom_session'] = 'test'
     return redirect('/')
+
+
+@app.route('/test')
+def test():
+    v = request.path
+    return v
 
 
 if __name__ == '__main__':
