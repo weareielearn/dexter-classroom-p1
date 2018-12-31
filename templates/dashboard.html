@@ -9,6 +9,7 @@
     <!-- css files -->
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../static/css/material.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/dash.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
@@ -20,14 +21,21 @@
                 <span class="mdl-layout-title text-right"><b>dexter</b> Classroom</span>
             </div>
         </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
+        <div class="mdl-layout__drawer border-0">
+            <span class="mdl-layout-title pl-0 pr-0 text-center pt-3 pb-3" style="margin-bottom: -15px;">{{ session['dexter_classroom_session'] }}</span>
+            <hr>
+            <nav class="mdl-navigation pt-0">
+                <a class="mdl-navigation__link nav_link_active" href="/dexter-challenges">Dexter Challenges</a>
+                <a class="mdl-navigation__link" href="/diy-challenges">DIY Challenges</a>
+                <a class="mdl-navigation__link" href="/dashboard">Dashboard</a>
+                <a class="mdl-navigation__link" href="/events">Events</a>
+                <a class="mdl-navigation__link" href="/settings">Settings</a>
             </nav>
+            <hr>
+            <nav class="mdl-navigation text-center pt-0" style="margin-top: -15px; margin-bottom: -15px;">
+                <a class="mdl-navigation__link" href="">Sign Out</a>
+            </nav>
+            <hr>
         </div>
 
         <main class="mdl-layout__content">

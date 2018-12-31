@@ -1,0 +1,19 @@
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+a:hover, a:active, a:focus, a {
+    text-decoration: none;
+}
+
+.mdl-layout__drawer-button:active,
+.mdl-layout__drawer-button:focus,
+.mdl-layout__drawer-button:hover {
+    outline: none;
+}
+
+.nav_link_active {
+    background-color: #e0e0e0;
+}
