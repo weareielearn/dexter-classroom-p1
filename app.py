@@ -94,12 +94,6 @@ def test_session():
     return redirect('/')
 
 
-@app.route('/test')
-def test():
-    v = request.path
-    return v
-
-
 if __name__ == '__main__':
     app.run(debug=True)
 

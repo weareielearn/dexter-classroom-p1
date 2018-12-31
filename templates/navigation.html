@@ -1,0 +1,42 @@
+<header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
+        <span class="mdl-layout-title text-right"><b>dexter</b> Classroom</span>
+    </div>
+</header>
+<div class="mdl-layout__drawer border-0">
+    <span class="mdl-layout-title pl-0 pr-0 text-center pt-3 pb-3" style="margin-bottom: -15px;">{{ session['dexter_classroom_session'] }}</span>
+    <hr>
+    <nav class="mdl-navigation pt-0">
+        {% if request.path == '/dexter-challenges': %}
+            <a class="mdl-navigation__link nav_link_active" href="/dexter-challenges">Dexter Challenges</a>
+        {% else: %}
+            <a class="mdl-navigation__link" href="/dexter-challenges">Dexter Challenges</a>
+        {% endif %}
+        {% if request.path == '/diy-challenges': %}
+            <a class="mdl-navigation__link nav_link_active" href="/diy-challenges">DIY Challenges</a>
+        {% else: %}
+            <a class="mdl-navigation__link" href="/diy-challenges">DIY Challenges</a>
+        {% endif %}
+        {% if request.path == '/dashboard': %}
+            <a class="mdl-navigation__link nav_link_active" href="/dashboard">Dashboard</a>
+        {% else: %}
+            <a class="mdl-navigation__link" href="/dashboard">Dashboard</a>
+        {% endif %}
+        {% if request.path == '/events': %}
+            <a class="mdl-navigation__link nav_link_active" href="/events">Events</a>
+        {% else: %}
+            <a class="mdl-navigation__link" href="/events">Events</a>
+        {% endif %}
+        {% if request.path == '/settings': %}
+            <a class="mdl-navigation__link nav_link_active" href="/settings">Settings</a>
+        {% else: %}
+            <a class="mdl-navigation__link" href="/settings">Settings</a>
+        {% endif %}   
+    </nav>
+    <hr>
+    <nav class="mdl-navigation text-center pt-0" style="margin-top: -15px; margin-bottom: -15px;">
+        <a class="mdl-navigation__link" href="/signout">Sign Out</a>
+    </nav>
+    <hr>
+</div>
