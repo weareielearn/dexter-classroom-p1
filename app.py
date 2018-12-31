@@ -16,7 +16,7 @@ def home():
         else:
             return render_template('home.html')
     else:
-        return redirect('/test')
+        return redirect('/dashboard')
 
 
 @app.route('/forgot')
@@ -44,11 +44,39 @@ def new():
         return redirect('/')
 
 
-@app.route('/test')
-def test():
+@app.route('/dexter-challenges')
+def dexter_challenges():
     if 'dexter_classroom_session' not in session:
         return redirect('/')
-    return"Development in process"
+    return"dexter_challenges - Development in process"
+
+
+@app.route('/diy-challenges')
+def diy_challenges():
+    if 'dexter_classroom_session' not in session:
+        return redirect('/')
+    return"diy_challenges - Development in process"
+
+
+@app.route('/dashboard')
+def dashboard():
+    if 'dexter_classroom_session' not in session:
+        return redirect('/')
+    return"dashboard - Development in process"
+
+
+@app.route('/events')
+def events():
+    if 'dexter_classroom_session' not in session:
+        return redirect('/')
+    return"events - Development in process"
+
+
+@app.route('/settings')
+def settings():
+    if 'dexter_classroom_session' not in session:
+        return redirect('/')
+    return"settings - Development in process"
 
 
 # tests
