@@ -17,3 +17,11 @@ a:hover, a:active, a:focus, a {
 .nav_link_active {
     background-color: #e0e0e0;
 }
+
+.mdl-textfield__input {
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+.underline:after {
+    background-color: transparent;
+}

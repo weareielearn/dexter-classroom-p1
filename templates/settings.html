@@ -22,59 +22,91 @@
                 <div class="container p-0 pl-sm-5">
                     <!--  -->
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input name="community" class="mdl-textfield__input" type="text">
-                        <label class="mdl-textfield__label">Username</label>
+                        <input readonly id="username" class="mdl-textfield__input" type="text" value={{ session['dexter_classroom_session'] }}>
+                        <label class="mdl-textfield__label underline">Username</label>
                     </div>
                     <div class="invisible" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
                         <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
                     </div>
                     <!--  -->
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 225px;">
-                        <input name="community" class="mdl-textfield__input" type="text" maxlength="6">
-                        <label class="mdl-textfield__label">Community code</label>
+                    <!-- width:225 - 155-->
+                    <div id="community_hold" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 225px;">
+                        <input readonly id="community" class="mdl-textfield__input" type="text" maxlength="6" value=" ">
+                        <label class="mdl-textfield__label underline">Community code</label>
                         <!-- <i class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
                             <i class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
                             <div class="mdl-tooltip mdl-color--brown" data-mdl-for="">Invalid community
                                 code</div> -->
                     </div>
-                    <div style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
-                        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
+                    <div id="community_btn_hold" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
+                        <button id="community_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
+                    </div>
+                    <div id="community_btn_hold_2" class="d-none" style="margin-top:-60px; margin-bottom: 24px; margin-left: 163px;">
+                        <button id="community_btn_2" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Save</button>
+                        <button id="community_btn_3" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
                     </div>
                     <!--  -->
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 225px;">
-                        <input name="community" class="mdl-textfield__input" type="text" maxlength="10">
-                        <label class="mdl-textfield__label">Phone number</label>
-                        <!-- <i class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                    <!-- width:225 - 155-->
+                    <div id="phone_hold" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 225px;">
+                            <input readonly id="phone" class="mdl-textfield__input" type="text" maxlength="6" value=" ">
+                            <label class="mdl-textfield__label underline">Phone number</label>
+                            <!-- <i class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
                                 <i class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
                                 <div class="mdl-tooltip mdl-color--brown" data-mdl-for="">Invalid community
                                     code</div> -->
-                    </div>
-                    <div style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
-                        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
-                    </div>
-                    <!--  -->
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 225px;">
-                        <input name="community" class="mdl-textfield__input" type="text" maxlength="20">
-                        <label class="mdl-textfield__label">Password</label>
-                        <!-- <i class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                        </div>
+                        <div id="phone_btn_hold" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
+                            <button id="phone_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
+                        </div>
+                        <div id="phone_btn_hold_2" class="d-none" style="margin-top:-60px; margin-bottom: 24px; margin-left: 163px;">
+                            <button id="phone_btn_2" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Save</button>
+                            <button id="phone_btn_3" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
+                        </div>
+                        <!--  -->
+                        <!-- width:225 - 155-->
+                    <div id="password_hold" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 225px;">
+                            <input readonly id="password" class="mdl-textfield__input" type="password" maxlength="6" value=" ">
+                            <label class="mdl-textfield__label underline">Password</label>
+                            <!-- <i class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
                                 <i class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
                                 <div class="mdl-tooltip mdl-color--brown" data-mdl-for="">Invalid community
                                     code</div> -->
-                    </div>
-                    <div style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
-                        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
-                    </div>
-                    <!--  -->
-                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Delete Account</button>
+                        </div>
+                        <div id="password_btn_hold" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
+                            <button id="password_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
+                        </div>
+                        <div id="password_btn_hold_2" class="d-none" style="margin-top:-60px; margin-bottom: 24px; margin-left: 163px;">
+                            <button id="password_btn_2" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Save</button>
+                            <button id="password_btn_3" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
+                        </div>
+                        <!--  -->
+                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Delete
+                        Account</button>
                 </div>
             </div>
         </main>
     </div>
 
+    <!-- firebase init -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyAwau9l26Q57iepoEjQGNKzfEuQMhbVwVA",
+            authDomain: "dexter-classroom.firebaseapp.com",
+            databaseURL: "https://dexter-classroom.firebaseio.com",
+            projectId: "dexter-classroom",
+            storageBucket: "dexter-classroom.appspot.com",
+            messagingSenderId: "627226131084"
+        };
+        firebase.initializeApp(config);
+    </script>
     <!-- js files -->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/bootstrap.bundle.min.js"></script>
     <script src="../static/js/material.min.js"></script>
+    <script src="../static/js/settings.js"></script>
 </body>
 
 </html>
