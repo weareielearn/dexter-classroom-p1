@@ -41,6 +41,7 @@ function onUserKey_signin() {
     var p = username_signin.value;
     if (p.indexOf(" ") != -1) {
         username_signin.value = p.replace(" ", "_");
+        p = username_signin.value;
     }
     if (p.length < 8) {
         document.getElementById('u_cross_signin').classList.replace('d-none', 'd-block');
