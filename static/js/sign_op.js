@@ -56,7 +56,7 @@ function onUserKey() {
     var p = username.value;
     if (p.indexOf(" ") != -1) {
         username.value = p.replace(" ", "_");
-        onUserKey();
+        p = username.value;
     }
     if (p.length < 8) {
         document.getElementById('u_cross').classList.replace('d-none', 'd-block');
