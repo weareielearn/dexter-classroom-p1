@@ -52,6 +52,8 @@ function cancelVerification(e) {
     window.confirmationResult = null;
     hideVerification();
     phone_number.disabled = false;
+    btn_ph_ver.disabled = false
+    document.getElementById("ver_cross").classList.replace("d-block", "d-none");
 }
 
 function getPhoneNumberFromUserInput() {
@@ -106,31 +108,39 @@ function onSignOutClick() {
 }
 
 function onVerifyCodeSubmit() {
-    if (!!getCodeFromUserInput()) {
-        window.verifyingCode = true;
-        ver_code_btn.disabled = true;
-        ver_code.disabled = true;
-        var code = getCodeFromUserInput();
-        confirmationResult.confirm(code).then(function (result) {
-            // User signed in successfully.
-            var user = result.user;
-            window.verifyingCode = false;
-            window.confirmationResult = null;
-            console.log("Successful verification")
-            onSignOutClick();
-            hideVerification();
-            ver_code_btn.disabled = false;
-            ver_code.disabled = false;
-            phone_number.disabled = true;
-            phoneVerified();
-            document.getElementById("ph_cross").classList.replace("d-block", "d-none");
-            document.getElementById("ph_check").classList.replace("d-none", "d-block");
-            // add button code later
-        }).catch(function (error) {
-            // User couldn't sign in (bad verification code?)
-            console.error('Error while checking the verification code', error);
-            window.verifyingCode = false;
-        });
+    if (ver_code.value.replace(" ", "") != "") {
+        if (!!getCodeFromUserInput()) {
+            window.verifyingCode = true;
+            ver_code_btn.disabled = true;
+            ver_code.disabled = true;
+            var code = getCodeFromUserInput();
+            confirmationResult.confirm(code).then(function (result) {
+                // User signed in successfully.
+                var user = result.user;
+                window.verifyingCode = false;
+                window.confirmationResult = null;
+                console.log("Successful verification")
+                onSignOutClick();
+                hideVerification();
+                ver_code_btn.disabled = false;
+                ver_code.disabled = false;
+                phone_number.disabled = true;
+                phoneVerified();
+                document.getElementById("ph_cross").classList.replace("d-block", "d-none");
+                document.getElementById("ph_check").classList.replace("d-none", "d-block");
+                document.getElementById("ver_cross").classList.replace("d-block", "d-none");
+            }).catch(function (error) {
+                // User couldn't sign in (bad verification code?)
+                console.error('Error while checking the verification code', error);
+                window.verifyingCode = false;
+                document.getElementById("ver_cross").classList.replace("d-none", "d-block");
+                ver_code_btn.disabled = false;
+                ver_code.disabled = false;
+            });
+        }
+    }
+    else {
+        document.getElementById("ver_cross").classList.replace("d-none", "d-block");
     }
 }
 window.onload = function () {
