@@ -62,7 +62,7 @@ def diy_challenges():
 def dashboard():
     if 'dexter_classroom_session' not in session:
         return redirect('/')
-    return"dashboard - Development in process"
+    return render_template('dashboard.html')
 
 
 @app.route('/events')
