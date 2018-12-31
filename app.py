@@ -48,14 +48,14 @@ def new():
 def dexter_challenges():
     if 'dexter_classroom_session' not in session:
         return redirect('/')
-    return"dexter_challenges - Development in process"
+    return render_template('dexter-challenges.html')
 
 
 @app.route('/diy-challenges')
 def diy_challenges():
     if 'dexter_classroom_session' not in session:
         return redirect('/')
-    return"diy_challenges - Development in process"
+    return render_template('diy-challenges.html')
 
 
 @app.route('/dashboard')
@@ -69,14 +69,14 @@ def dashboard():
 def events():
     if 'dexter_classroom_session' not in session:
         return redirect('/')
-    return"events - Development in process"
+    return render_template('events.html')
 
 
 @app.route('/settings')
 def settings():
     if 'dexter_classroom_session' not in session:
         return redirect('/')
-    return"settings - Development in process"
+    return render_template('settings.html')
 
 
 @app.route('/signout')
