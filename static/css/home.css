@@ -18,8 +18,6 @@ a:hover, a:active, a:focus, a {
     text-decoration: none;
 }
 
-.material-icons:active,
-.material-icons:focus,
-.material-icons:hover {
+.material-icons:active, .material-icons:focus, .material-icons:hover {
     outline: none;
 }

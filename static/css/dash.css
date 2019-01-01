@@ -8,9 +8,7 @@ a:hover, a:active, a:focus, a {
     text-decoration: none;
 }
 
-.mdl-layout__drawer-button:active,
-.mdl-layout__drawer-button:focus,
-.mdl-layout__drawer-button:hover {
+.mdl-layout__drawer-button:active, .mdl-layout__drawer-button:focus, .mdl-layout__drawer-button:hover {
     outline: none;
 }
 
@@ -24,4 +22,8 @@ a:hover, a:active, a:focus, a {
 
 .underline:after {
     background-color: transparent;
+}
+
+.material-icons:active, .material-icons:focus, .material-icons:hover {
+    outline: none;
 }
