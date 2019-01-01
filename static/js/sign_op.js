@@ -26,6 +26,7 @@ function checkCommunityCode() {
         .then(function (snapshot) {
             if (snapshot.exists()) {
                 // correct code
+                code_in.value = code;
                 code_in.disabled = true;
                 code_verify_btn_holder.classList.add("d-none");
                 code_holder.classList.replace("w-75", "w-100");
