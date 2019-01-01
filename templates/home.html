@@ -11,46 +11,66 @@
     <link rel="stylesheet" type="text/css" href="../static/css/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/preloader.css">
 </head>
 
 <body class="bg-light">
 
-    <div class="home_bg">
-        <a href="/">
-            <h1 class="display-3 text-white text-center"><b class="font-weight-bold">dexter</b>
-                Classroom</h1>
-        </a>
-    </div>
-    <form id="signin_form" method="POST" action="/" class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
-        <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign In</h2>
-        <!--  -->
-        <div class="mdl-textfield mdl-js-textfield">
-            <input name="username" id="username_signin" class="mdl-textfield__input" type="text" maxlength="20">
-            <label class="mdl-textfield__label">Username</label>
-            <i id="u_check_signin" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="u_cross_signin" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-            <div id="u_cross_text_signin" class="mdl-tooltip mdl-color--brown" data-mdl-for="u_cross_signin">Test</div>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield">
-            <input name="password" id="password_signin" class="mdl-textfield__input" type="password" maxlength="20">
-            <label class="mdl-textfield__label">Password</label>
-            <i id="p_check_signin" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="p_cross_signin" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-            <div id="p_cross_text_signin" class="mdl-tooltip mdl-color--brown" data-mdl-for="p_cross_signin">Minimum 8
-                characters</div>
-        </div>
-        <!--  -->
-        <a href="/forgot" class="mdl-color-text--primary">
-            <p>Forgot Password ?</p>
-        </a>
-        <div class="text-center w-100">
-            <button type="button" id="signin_offic" class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
-            <h5 class="h5 mt-2 d-inline-block text-monospace mdl-color-text--primary">or</h5>
-            <a href="/new" class="mdl-button--accent float-right mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sign
-                Up</a>
-        </div>
-    </form>
+    {% include 'preloader.html' %}
 
+    <div id="main-content" class="d-none">
+        <div class="home_bg">
+            <a href="/">
+                <h1 class="display-3 text-white text-center"><b class="font-weight-bold">dexter</b>
+                    Classroom</h1>
+            </a>
+        </div>
+        <form id="signin_form" method="POST" action="/" class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
+            <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign In</h2>
+            <!--  -->
+            <div class="mdl-textfield mdl-js-textfield">
+                <input name="username" id="username_signin" class="mdl-textfield__input" type="text" maxlength="20">
+                <label class="mdl-textfield__label">Username</label>
+                <i id="u_check_signin" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                <i id="u_cross_signin" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                <div id="u_cross_text_signin" class="mdl-tooltip mdl-color--brown" data-mdl-for="u_cross_signin">Test</div>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield">
+                <input name="password" id="password_signin" class="mdl-textfield__input" type="password" maxlength="20">
+                <label class="mdl-textfield__label">Password</label>
+                <i id="p_check_signin" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                <i id="p_cross_signin" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                <div id="p_cross_text_signin" class="mdl-tooltip mdl-color--brown" data-mdl-for="p_cross_signin">Minimum
+                    8
+                    characters</div>
+            </div>
+            <!--  -->
+            <a href="/forgot" class="mdl-color-text--primary">
+                <p>Forgot Password ?</p>
+            </a>
+            <div class="text-center w-100">
+                <button type="button" id="signin_offic" class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
+                <h5 class="h5 mt-2 d-inline-block text-monospace mdl-color-text--primary">or</h5>
+                <a href="/new" class="mdl-button--accent float-right mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Sign
+                    Up</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- preloader -->
+    <script>
+        function preloader_hide() {
+            setTimeout(function () {
+                $("#preloader").fadeOut(500);
+                setTimeout(function () {
+                    document.getElementById("preloader").classList.replace("d-block", "d-none");
+                    $("#main-content").fadeIn(510);
+                    document.getElementById("main-content").classList.replace("d-none", "d-block");
+                }, 490);
+            }, 3500);
+        }
+        preloader_hide();
+    </script>
     <!-- firebase init -->
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>

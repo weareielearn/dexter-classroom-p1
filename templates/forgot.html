@@ -11,28 +11,47 @@
     <link rel="stylesheet" type="text/css" href="../static/css/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/preloader.css">
 </head>
 
 <body class="bg-light">
 
-    <div class="home_bg">
-        <a href="/">
-            <h1 class="display-3 text-white text-center"><b class="font-weight-bold">dexter</b>
-                Classroom</h1>
-        </a>
+    {% include 'preloader.html' %}
+
+    <div id="main-content" class="d-none">
+        <div class="home_bg">
+            <a href="/">
+                <h1 class="display-3 text-white text-center"><b class="font-weight-bold">dexter</b>
+                    Classroom</h1>
+            </a>
+        </div>
+        <form class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
+            <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Forgot</h2>
+
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="number">
+                <label class="mdl-textfield__label">Phone number</label>
+            </div>
+            <div class="text-center w-100">
+                <button class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
+            </div>
+        </form>
     </div>
-    <form class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
-        <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Forgot</h2>
 
-        <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="number">
-            <label class="mdl-textfield__label">Phone number</label>
-        </div>
-        <div class="text-center w-100">
-            <button class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
-        </div>
-    </form>
-
+    <!-- preloader -->
+    <script>
+        function preloader_hide() {
+            setTimeout(function () {
+                $("#preloader").fadeOut(500);
+                setTimeout(function () {
+                    document.getElementById("preloader").classList.replace("d-block", "d-none");
+                    $("#main-content").fadeIn(510);
+                    document.getElementById("main-content").classList.replace("d-none", "d-block");
+                }, 490);
+            }, 3500);
+        }
+        preloader_hide();
+    </script>
     <!-- js files -->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/bootstrap.bundle.min.js"></script>

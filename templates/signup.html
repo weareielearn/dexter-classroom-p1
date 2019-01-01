@@ -11,75 +11,93 @@
     <link rel="stylesheet" type="text/css" href="../static/css/material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/preloader.css">
 </head>
 
 <body class="bg-light">
 
-    <div class="home_bg">
-        <a href="/">
-            <h1 class="display-3 text-white text-center"><b class="font-weight-bold">dexter</b>
-                Classroom</h1>
-        </a>
+    {% include 'preloader.html' %}
+    <div id="main-content" class="d-none">
+        <div class="home_bg">
+            <a href="/">
+                <h1 class="display-3 text-white text-center"><b class="font-weight-bold">dexter</b>
+                    Classroom</h1>
+            </a>
+        </div>
+        <form id="signup_form" method="POST" action="/new" class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
+            <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign Up</h2>
+            <!--  -->
+            <div class="mdl-textfield mdl-js-textfield">
+                <input name="username" id="username" class="mdl-textfield__input" type="text" maxlength="20">
+                <label class="mdl-textfield__label">Username</label>
+                <i id="u_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                <i id="u_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                <div id="u_cross_text" class="mdl-tooltip mdl-color--brown" data-mdl-for="u_cross">Test</div>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield">
+                <input name="password" id="password" class="mdl-textfield__input" type="password" maxlength="20">
+                <label class="mdl-textfield__label">Password</label>
+                <i id="p_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                <i id="p_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                <div class="mdl-tooltip mdl-color--brown" data-mdl-for="p_cross">Minimum 8 characters</div>
+            </div>
+            <!--  -->
+            <div id="code_holder" class="mdl-textfield mdl-js-textfield w-75">
+                <input name="community" id="code" class="mdl-textfield__input" type="text" maxlength="6">
+                <label class="mdl-textfield__label">Community code</label>
+                <i id="c_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                <i id="c_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                <div class="mdl-tooltip mdl-color--brown" data-mdl-for="c_cross">Invalid community code</div>
+            </div>
+            <div id="code_verify_btn_holder" style="margin-top:-60px; margin-bottom: 24px;">
+                <button id="code_verify_btn" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+            </div>
+            <!--  -->
+            <div id="ph_holder" class="d-block mdl-textfield mdl-js-textfield w-75">
+                <input name="phone" id="phone-number" class="pl-5 mdl-textfield__input" type="number">
+                <label class="pl-5 mdl-textfield__label">Phone number</label>
+                <span style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
+                <i id="ph_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
+                <i id="ph_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                <div class="mdl-tooltip mdl-color--brown" data-mdl-for="ph_cross">Invalid phone number</div>
+            </div>
+            <div id="ph_btn_holder" class="d-block" style="margin-top:-60px; margin-bottom: 24px;">
+                <button id="btn_ph_ver" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+            </div>
+            <!--  -->
+            <div id="ver_holder" class="d-none mdl-textfield mdl-js-textfield w-50">
+                <input id="ver_code" class="mdl-textfield__input" type="number">
+                <label class="mdl-textfield__label">Code</label>
+                <i id="ver_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                <div class="mdl-tooltip mdl-color--brown" data-mdl-for="ver_cross">Invalid verification code</div>
+            </div>
+            <div id="ver_btn_holder" class="d-none" style="margin-top:-60px; margin-bottom: 24px" align="right">
+                <button id="ver_code_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
+                <button id="btn_cancel" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
+            </div>
+            <!--  -->
+            <div class="text-center w-100">
+                <button id="signup_offic" type="button" class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
+            </div>
+            <!--  -->
+            <button type="button" id="sign-in-button_offic" class="d-none"></button>
+        </form>
     </div>
-    <form id="signup_form" method="POST" action="/new" class="mdl-card mdl-shadow--6dp mx-auto m-5 p-4 pt-5 pb-5">
-        <h2 class="h2 text-monospace mdl-color-text--primary text-center mt-0">Sign Up</h2>
-        <!--  -->
-        <div class="mdl-textfield mdl-js-textfield">
-            <input name="username" id="username" class="mdl-textfield__input" type="text" maxlength="20">
-            <label class="mdl-textfield__label">Username</label>
-            <i id="u_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="u_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-            <div id="u_cross_text" class="mdl-tooltip mdl-color--brown" data-mdl-for="u_cross">Test</div>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield">
-            <input name="password" id="password" class="mdl-textfield__input" type="password" maxlength="20">
-            <label class="mdl-textfield__label">Password</label>
-            <i id="p_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="p_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="p_cross">Minimum 8 characters</div>
-        </div>
-        <!--  -->
-        <div id="code_holder" class="mdl-textfield mdl-js-textfield w-75">
-            <input name="community" id="code" class="mdl-textfield__input" type="text" maxlength="6">
-            <label class="mdl-textfield__label">Community code</label>
-            <i id="c_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="c_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="c_cross">Invalid community code</div>
-        </div>
-        <div id="code_verify_btn_holder" style="margin-top:-60px; margin-bottom: 24px;">
-            <button id="code_verify_btn" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
-        </div>
-        <!--  -->
-        <div id="ph_holder" class="d-block mdl-textfield mdl-js-textfield w-75">
-            <input name="phone" id="phone-number" class="pl-5 mdl-textfield__input" type="number">
-            <label class="pl-5 mdl-textfield__label">Phone number</label>
-            <span style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
-            <i id="ph_check" class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-            <i id="ph_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="ph_cross">Invalid phone number</div>
-        </div>
-        <div id="ph_btn_holder" class="d-block" style="margin-top:-60px; margin-bottom: 24px;">
-            <button id="btn_ph_ver" type="button" class="float-right mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
-        </div>
-        <!--  -->
-        <div id="ver_holder" class="d-none mdl-textfield mdl-js-textfield w-50">
-            <input id="ver_code" class="mdl-textfield__input" type="number">
-            <label class="mdl-textfield__label">Code</label>
-            <i id="ver_cross" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="ver_cross">Invalid verification code</div>
-        </div>
-        <div id="ver_btn_holder" class="d-none" style="margin-top:-60px; margin-bottom: 24px" align="right">
-            <button id="ver_code_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
-            <button id="btn_cancel" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
-        </div>
-        <!--  -->
-        <div class="text-center w-100">
-            <button id="signup_offic" type="button" class="mdl-button--colored float-left mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Go</button>
-        </div>
-        <!--  -->
-        <button type="button" id="sign-in-button_offic" class="d-none"></button>
-    </form>
 
+    <!-- preloader -->
+    <script>
+        function preloader_hide() {
+            setTimeout(function () {
+                $("#preloader").fadeOut(500);
+                setTimeout(function () {
+                    document.getElementById("preloader").classList.replace("d-block", "d-none");
+                    $("#main-content").fadeIn(510);
+                    document.getElementById("main-content").classList.replace("d-none", "d-block");
+                }, 490);
+            }, 3500);
+        }
+        preloader_hide();
+    </script>
     <!-- firebase init -->
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
