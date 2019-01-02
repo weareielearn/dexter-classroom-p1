@@ -110,6 +110,7 @@ function phoneCancel() {
     phone.disabled = false;
     phone_btn_ver.disabled = false;
     document.getElementById('country_code').classList.remove("d-none");
+    document.getElementById("err_phone").innerHTML = "Invalid phone number";
 }
 
 // password
