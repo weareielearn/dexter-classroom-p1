@@ -116,6 +116,7 @@ function phoneCancel() {
 // password
 function passwordChange() {
     password.readOnly = false;
+    password_btn_2.disabled = false;
     password_btn_hold.classList.replace("d-block", 'd-none');
     password_btn_hold_2.classList.replace("d-none", 'd-block');
     password_hold.style.width = "155px";
