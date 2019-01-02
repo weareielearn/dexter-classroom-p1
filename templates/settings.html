@@ -54,25 +54,29 @@
                         <!--  -->
                         <!-- width:225 - 155-->
                         <div id="phone_hold" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 225px;">
-                            <input readonly id="phone" class="mdl-textfield__input" type="text" maxlength="6" value=" ">
-                            <label class="mdl-textfield__label underline">Phone number</label>
-                            <!-- <i class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-                                    <i class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-                                    <div class="mdl-tooltip mdl-color--brown" data-mdl-for="">Invalid community
-                                        code</div> -->
+                            <input readonly id="phone" style="padding-left:30px;" class="d-block mdl-textfield__input"
+                                type="text" maxlength="10" value=" ">
+                            <label id="phone_l" class="d-block mdl-textfield__label underline">Phone number</label>
+                            <!--  -->
+                            <span id="country_code" style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
+                            <i id="phone_cross_dash" class="d-none material-icons mdl-color-text--brown float-right"
+                                style="margin-top: -35px;">highlight_off</i>
+                            <div id="err_phone" class="mdl-tooltip mdl-color--brown" data-mdl-for="phone_cross_dash">Invalid phone
+                                number</div>
                         </div>
-                        <div id="phone_btn_hold" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
+                        <div id="phone_btn_hold" class="d-block" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
                             <button id="phone_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
                         </div>
                         <div id="phone_btn_hold_2" class="d-none" style="margin-top:-60px; margin-bottom: 24px; margin-left: 163px;">
                             <button id="phone_btn_2" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Save</button>
+                            <button id="phone_btn_ver" type="button" class="d-none mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Verify</button>
                             <button id="phone_btn_3" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
                         </div>
                         <!--  -->
                         <!-- width:225 - 155-->
                         <div id="password_hold" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
                             style="width: 225px;">
-                            <input readonly id="password" class="mdl-textfield__input" type="text" maxlength="20"
+                            <input readonly id="password" class="mdl-textfield__input" type="password" maxlength="20"
                                 value=" ">
                             <label class="mdl-textfield__label underline">Password</label>
                             <i id="p_cross_d" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
@@ -90,6 +94,8 @@
                         <!--  -->
                         <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Delete
                             Account</button>
+
+                        <button id="sign-in-button_offic_2" class=d-none></button>
                     </div>
                 </div>
             </main>

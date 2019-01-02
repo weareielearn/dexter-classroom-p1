@@ -25,12 +25,16 @@ var phone_btn = document.getElementById("phone_btn");
 var phone_btn_hold_2 = document.getElementById("phone_btn_hold_2");
 var phone_btn_2 = document.getElementById("phone_btn_2");
 var phone_btn_3 = document.getElementById("phone_btn_3");
+var phone_btn_ver = document.getElementById("phone_btn_ver");
 // values
-var community_v, phone_v, pass_v;
+var community_v, phone_v, pass_v, phone_t, phone_veri;
 
 // listeners
 phone_btn.addEventListener("click", phoneChange);
 phone_btn_3.addEventListener("click", phoneCancel);
+phone_btn_2.addEventListener("click", phoneSave);
+phone_btn_ver.addEventListener("click", onVerifyCodeSubmit_d);
+
 
 community_btn.addEventListener("click", communityChange);
 community_btn_3.addEventListener("click", communityCancel);
@@ -78,6 +82,7 @@ function communityCancel() {
 
 // phone
 function phoneChange() {
+    phone.type = "number"
     phone.readOnly = false;
     phone_btn_hold.classList.replace("d-block", 'd-none');
     phone_btn_hold_2.classList.replace("d-none", 'd-block');
@@ -87,13 +92,24 @@ function phoneChange() {
 }
 
 function phoneCancel() {
+    document.getElementById('phone_cross_dash').classList.replace('d-block', 'd-none');
     phone.readOnly = true;
     phone_btn_hold.classList.replace("d-none", 'd-block');
     phone_btn_hold_2.classList.replace("d-block", 'd-none');
     phone_hold.style.width = "225px";
     phone_hold.getElementsByTagName("label")[0].classList.add("underline");
     phone.blur();
+    phone.type = "text";
     phone.value = phone_v;
+
+    document.getElementById('phone_cross_dash').classList.replace('d-block', 'd-none');
+    phone_btn_ver.classList.add("d-none");
+    document.getElementById('phone_l').innerHTML = "Phone number"
+    phone_btn_2.classList.remove("d-none");
+    phone.style.paddingLeft = "30px";
+    phone.disabled = false;
+    phone_btn_ver.disabled = false;
+    document.getElementById('country_code').classList.remove("d-none");
 }
 
 // password
@@ -161,4 +177,130 @@ function onPassSave_dash() {
         password_btn_2.disabled = false;
         passwordCancel();
     }
+}
+
+function phoneSave() {
+    phone.disabled = true;
+    password_btn_2.disabled = true;
+    var p = phone.value;
+    if (p.length < 10) {
+        phone.disabled = false;
+        phone_btn_2.disabled = false;
+        document.getElementById('phone_cross_dash').classList.replace('d-none', 'd-block');
+    }
+    else {
+        phone.type = "number"
+        phone_t = "+91" + phone.value;
+        document.getElementById("sign-in-button_offic_2").click();
+    }
+}
+
+// auth
+window.onload = function () {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            var uid = user.uid;
+            var email = user.email;
+            var photoURL = user.photoURL;
+            var phoneNumber = user.phoneNumber;
+            var isAnonymous = user.isAnonymous;
+            var displayName = user.displayName;
+            var providerData = user.providerData;
+            var emailVerified = user.emailVerified;
+        }
+    });
+    window.recaptchaVerifier_d = new firebase.auth.RecaptchaVerifier('sign-in-button_offic_2', {
+        'size': 'invisible',
+        'callback': function (response) {
+            onSignInSubmit_d();
+        }
+    });
+    recaptchaVerifier_d.render().then(function (widgetId) {
+        window.recaptchaWidgetId = widgetId;
+        phone.disabled = false;
+    });
+};
+
+function onSignInSubmit_d() {
+    if (isPhoneNumberValid_d()) {
+        phone.disabled = true;
+        phone_btn_2.disabled = true;
+        var phoneNumber = phone_t;
+        var appVerifier = window.recaptchaVerifier_d;
+        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then(function (confirmationResult) {
+                // SMS sent. Prompt user to type the code from the message, then sign the
+                window.confirmationResult = confirmationResult;
+                console.log("Sms sent for verification");
+                // 
+                phone.disabled = false;
+                document.getElementById('phone_cross_dash').classList.replace('d-block', 'd-none');
+                phone_btn_ver.classList.remove("d-none");
+                document.getElementById('phone_l').innerHTML = "Code"
+                phone_btn_2.classList.add("d-none");
+                phone.style.paddingLeft = "0px";
+                phone_btn_2.disabled = false;
+                document.getElementById('country_code').classList.add("d-none");
+                phone_t = "+91" + phone.value;
+                phone.value = "";
+                phone.focus();
+
+            }).catch(function (error) {
+                // Error; SMS not sent
+                alert("sms not send");
+                console.error('Error during signInWithPhoneNumber', error);
+                window.signingIn = false;
+                // handle later
+            });
+    }
+}
+
+function onSignOutClick() {
+    firebase.auth().signOut();
+}
+
+function onVerifyCodeSubmit_d() {
+    phone_btn_ver.disabled = true;
+    phone.disabled = true;
+    if (phone.value.replace(" ", "") != "") {
+        if (!!getCodeFromUserInput_h()) {
+            window.verifyingCode = true;
+            var code = getCodeFromUserInput_h();
+            confirmationResult.confirm(code).then(function (result) {
+                // User signed in successfully.
+                phone_v = phone_t.slice(3, phone_t.length);
+                firebase.database().ref("users/" + username).update({ phone: phone_t.slice(3, phone_t.length) });
+                phoneCancel();
+
+            }).catch(function (error) {
+                // User couldn't sign in (bad verification code?)
+                console.error('Error while checking the verification code', error);
+                window.verifyingCode = false;
+                document.getElementById("phone_cross_dash").classList.replace("d-none", "d-block");
+                phone_btn_ver.disabled = false;
+                phone.disabled = false;
+                document.getElementById("err_phone").innerHTML = "Invalid verification code";
+
+            });
+        }
+    }
+    else {
+        document.getElementById("phone_cross_dash").classList.replace("d-none", "d-block");
+        phone_btn_ver.disabled = false;
+        phone.disabled = false;
+        document.getElementById("err_phone").innerHTML = "Invalid verification code";
+        // add later
+    }
+}
+
+function getCodeFromUserInput_h() {
+    return phone.value;
+}
+
+
+function isPhoneNumberValid_d() {
+    var pattern = /^\+[0-9\s\-\(\)]+$/;
+    var phoneNumber = phone_t;
+    return phoneNumber.search(pattern) !== -1;
 }
