@@ -39,6 +39,7 @@ community_btn_2.addEventListener("click", checkCommunityCode_d);
 
 password_btn.addEventListener("click", passwordChange);
 password_btn_3.addEventListener("click", passwordCancel);
+password_btn_2.addEventListener("click", onPassSave_dash);
 
 // window onload
 init_settings();
@@ -113,11 +114,12 @@ function passwordCancel() {
     password_hold.getElementsByTagName("label")[0].classList.add("underline");
     password.blur();
     password.value = pass_v;
+    document.getElementById("p_cross_d").classList.replace("d-block", 'd-none');
 }
 
 function checkCommunityCode_d() {
     community.disabled = true;
-    community_btn_3.disabled = true;
+    community_btn_2.disabled = true;
     var code = community.value.toUpperCase().replace(' ', "");
     var ref = firebase.database().ref("codes/" + code.slice(0, 4) + "/subcodes/" + code);
     ref.once("value")
@@ -125,7 +127,7 @@ function checkCommunityCode_d() {
             if (snapshot.exists()) {
                 // correct code
                 community.disabled = false;
-                community_btn_3.disabled = false;
+                community_btn_2.disabled = false;
                 communityCancel();
                 firebase.database().ref("users/" + username).update({ community: code });
                 community.value = code;
@@ -136,7 +138,27 @@ function checkCommunityCode_d() {
                 // wrong code
                 document.getElementById("community_err_dash").classList.replace("d-none", 'd-block');
                 community.disabled = false;
-                community_btn_3.disabled = false;
+                community_btn_2.disabled = false;
             }
         });
+}
+
+function onPassSave_dash() {
+    password.disabled = true;
+    password_btn_2.disabled = true;
+    var p = password.value;
+    if (p.length < 8) {
+        password.disabled = false;
+        password_btn_2.disabled = false;
+        document.getElementById('p_cross_d').classList.replace('d-none', 'd-block');
+    }
+    else {
+        firebase.database().ref("users/" + username).update({ password: p });
+        password.value = p;
+        pass_v = p;
+        document.getElementById('p_cross_d').classList.replace('d-block', 'd-none');
+        password.disabled = false;
+        password_btn_2.disabled = false;
+        passwordCancel();
+    }
 }

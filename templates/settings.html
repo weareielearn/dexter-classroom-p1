@@ -72,13 +72,13 @@
                         <!-- width:225 - 155-->
                         <div id="password_hold" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
                             style="width: 225px;">
-                            <input readonly id="password" class="mdl-textfield__input" type="password" maxlength="6"
+                            <input readonly id="password" class="mdl-textfield__input" type="text" maxlength="20"
                                 value=" ">
                             <label class="mdl-textfield__label underline">Password</label>
-                            <!-- <i class="d-none material-icons mdl-color-text--green float-right" style="margin-top: -35px;">check_circle_outline</i>
-                                    <i class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
-                                    <div class="mdl-tooltip mdl-color--brown" data-mdl-for="">Invalid community
-                                        code</div> -->
+                            <i id="p_cross_d" class="d-none material-icons mdl-color-text--brown float-right" style="margin-top: -35px;">highlight_off</i>
+                            <div class="mdl-tooltip mdl-color--brown" data-mdl-for="p_cross_d">Minimum
+                                8
+                                characters</div>
                         </div>
                         <div id="password_btn_hold" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
                             <button id="password_btn" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Edit</button>
