@@ -26,6 +26,8 @@ var phone_btn_hold_2 = document.getElementById("phone_btn_hold_2");
 var phone_btn_2 = document.getElementById("phone_btn_2");
 var phone_btn_3 = document.getElementById("phone_btn_3");
 var phone_btn_ver = document.getElementById("phone_btn_ver");
+
+var delete_btn = document.getElementById("delete_btn");
 // values
 var community_v, phone_v, pass_v, phone_t, phone_veri;
 
@@ -45,6 +47,7 @@ password_btn.addEventListener("click", passwordChange);
 password_btn_3.addEventListener("click", passwordCancel);
 password_btn_2.addEventListener("click", onPassSave_dash);
 
+delete_btn.addEventListener("click", deleteOp);
 // window onload
 init_settings();
 
@@ -305,4 +308,10 @@ function isPhoneNumberValid_d() {
     var pattern = /^\+[0-9\s\-\(\)]+$/;
     var phoneNumber = phone_t;
     return phoneNumber.search(pattern) !== -1;
+}
+
+function deleteOp() {
+    firebase.database().ref("users/" + username).remove();
+    alert("deleted");
+    window.location="/signout";
 }

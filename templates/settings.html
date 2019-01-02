@@ -61,7 +61,8 @@
                             <span id="country_code" style="margin-top:-31px;margin-left:-0px; position: absolute;">+91</span>
                             <i id="phone_cross_dash" class="d-none material-icons mdl-color-text--brown float-right"
                                 style="margin-top: -35px;">highlight_off</i>
-                            <div id="err_phone" class="mdl-tooltip mdl-color--brown" data-mdl-for="phone_cross_dash">Invalid phone
+                            <div id="err_phone" class="mdl-tooltip mdl-color--brown" data-mdl-for="phone_cross_dash">Invalid
+                                phone
                                 number</div>
                         </div>
                         <div id="phone_btn_hold" class="d-block" style="margin-top:-60px; margin-bottom: 24px; margin-left: 235px;">
@@ -92,13 +93,35 @@
                             <button id="password_btn_3" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect p-0">Cancel</button>
                         </div>
                         <!--  -->
-                        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Delete
+                        <button data-toggle="modal" data-target="#ModalCenter" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Delete
                             Account</button>
 
                         <button id="sign-in-button_offic_2" class=d-none></button>
                     </div>
                 </div>
             </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Warning</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deleting Your account will remove all your data and progress. This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="mdl-button mdl-button--accent" data-dismiss="modal">Close</button>
+                    <button id="delete_btn" type="button" class="mdl-button mdl-button--primary">Delete Account</button>
+                </div>
+            </div>
         </div>
     </div>
 
